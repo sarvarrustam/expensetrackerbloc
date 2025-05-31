@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:expensetrackerbloc/pages/home/bloc/home_bloc.dart';
 import 'package:expensetrackerbloc/src/text_fermat.dart';
 import 'package:expensetrackerbloc/widgets/enhanced_transaction_card.dart';
@@ -9,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive/hive.dart';
-import 'package:intl/intl.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

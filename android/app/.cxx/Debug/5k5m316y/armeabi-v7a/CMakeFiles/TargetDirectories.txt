@@ -1,2 +1,0 @@
-D:/portfolyu uchun/expensetrackerbloc/android/app/.cxx/Debug/5k5m316y/armeabi-v7a/CMakeFiles/edit_cache.dir
-D:/portfolyu uchun/expensetrackerbloc/android/app/.cxx/Debug/5k5m316y/armeabi-v7a/CMakeFiles/rebuild_cache.dir
