@@ -47,6 +47,7 @@ class HomePage extends StatelessWidget {
                 icon: const Icon(Icons.filter_list))
           ],
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             context
@@ -55,205 +56,201 @@ class HomePage extends StatelessWidget {
           },
           child: const Icon(Icons.add),
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.width / 2,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Theme.of(context).colorScheme.primary,
-                        Theme.of(context).colorScheme.secondary,
-                        Theme.of(context).colorScheme.tertiary,
-                      ],
-                      transform: const GradientRotation(pi / 4),
-                    ),
-                    borderRadius: BorderRadius.circular(25),
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: 4,
-                          color: Colors.grey.shade300,
-                          offset: const Offset(5, 5))
-                    ]),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Umumiy Hisob',
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    const SizedBox(height: 12),
-                    Text(
-                      context
-                          .watch<HomeBloc>()
-                          .state
-                          .balans()
-                          .toString()
-                          .formattedAmount(),
-                      style: const TextStyle(
-                          fontSize: 35,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 12.w, horizontal: 20.h),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                width: 30.w,
-                                height: 30.h,
-                                decoration: const BoxDecoration(
-                                    color: Colors.white30,
-                                    shape: BoxShape.circle),
-                                child: Center(
-                                    child: Icon(
-                                  CupertinoIcons.arrow_down,
-                                  size: 15.sp,
-                                  color: Colors.black,
-                                )),
-                              ),
-                              SizedBox(width: 8.w),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    'Krim',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    context
-                                        .watch<HomeBloc>()
-                                        .state
-                                        .incomeBalance()
-                                        .toString()
-                                        .formattedAmount(),
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                          InkWell(
-                            onTap: () {
-                              context.push("/hisoborlar");
-                            },
-                            child: Column(
-                              children: [
-                                Icon(Icons.add_chart_sharp,
-                                    color: Colors.red, size: 30.sp),
-                                Text('Xisobot',
-                                    style: TextStyle(
-                                        color: Colors.red, fontSize: 15.sp)),
-                              ],
+        body: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10.w),
+              height: 200.h,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context).colorScheme.secondary,
+                      Theme.of(context).colorScheme.tertiary,
+                    ],
+                    transform: const GradientRotation(pi / 4),
+                  ),
+                  borderRadius: BorderRadius.circular(25),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 4,
+                        color: Colors.grey.shade300,
+                        offset: const Offset(5, 5))
+                  ]),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Umumiy Hisob',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    context
+                        .watch<HomeBloc>()
+                        .state
+                        .balans()
+                        .toString()
+                        .formattedAmount(),
+                    style: const TextStyle(
+                        fontSize: 35,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 12.w, horizontal: 20.h),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 30.w,
+                              height: 30.h,
+                              decoration: const BoxDecoration(
+                                  color: Colors.white30,
+                                  shape: BoxShape.circle),
+                              child: Center(
+                                  child: Icon(
+                                CupertinoIcons.arrow_down,
+                                size: 15.sp,
+                                color: Colors.black,
+                              )),
                             ),
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                width: 30,
-                                height: 30,
-                                decoration: const BoxDecoration(
-                                    color: Colors.white30,
-                                    shape: BoxShape.circle),
-                                child: const Center(
-                                    child: Icon(
-                                  CupertinoIcons.arrow_up,
-                                  size: 15,
-                                  color: Colors.black,
-                                )),
-                              ),
-                              const SizedBox(width: 8),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    'Chiqim',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    context
-                                        .watch<HomeBloc>()
-                                        .state
-                                        .expenseBalance()
-                                        .toString()
-                                        .formattedAmount(),
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(height: 10.h),
-              BlocBuilder<HomeBloc, HomeState>(
-                builder: (context, state) {
-                  return Expanded(
-                    child: ListView.builder(
-                      itemCount: state.getFilterList().length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final item = state.getFilterList()[index];
-                        final amount =
-                            item['amount'].toString().parseToDouble();
-
-                        return EnhancedTransactionCard(
-                          title: item['title'],
-                          date: item['date'],
-                          catalog: item['selectCotalog'],
-                          amount: amount.toString().formattedAmount(),
-                          isIncome: item['typeInput'] == true ||
-                              item['typeInput'] == 'true' ||
-                              item['typeInput'] == 1,
-                          onEdit: () {
-                            context.read<HomeBloc>().add(
-                                  EditTransactionEvent(
-                                    context,
-                                    transaction: item,
-                                  ),
-                                );
-                          },
-                          onDelete: () {
-                            context.read<HomeBloc>().add(
-                                  DeleteTransactionEvent(item, context),
-                                );
-                          },
-                        );
-                      },
+                            SizedBox(width: 8.w),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Krim',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                Text(
+                                  context
+                                      .watch<HomeBloc>()
+                                      .state
+                                      .incomeBalance()
+                                      .toString()
+                                      .formattedAmount(),
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              width: 30,
+                              height: 30,
+                              decoration: const BoxDecoration(
+                                  color: Colors.white30,
+                                  shape: BoxShape.circle),
+                              child: const Center(
+                                  child: Icon(
+                                CupertinoIcons.arrow_up,
+                                size: 15,
+                                color: Colors.black,
+                              )),
+                            ),
+                            const SizedBox(width: 8),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Chiqim',
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                Text(
+                                  context
+                                      .watch<HomeBloc>()
+                                      .state
+                                      .expenseBalance()
+                                      .toString()
+                                      .formattedAmount(),
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
                     ),
-                  );
-                },
+                  ),
+                  InkWell(
+                    onTap: () {
+                      context.push("/hisoborlar");
+                    },
+                    child: Column(
+                      children: [
+                        Icon(Icons.add_chart_sharp,
+                            color: Colors.white, size: 30.sp),
+                        Text('Xisobot',
+                            style: TextStyle(
+                                color: Colors.white, fontSize: 15.sp)),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+            SizedBox(height: 10.h),
+            BlocBuilder<HomeBloc, HomeState>(
+              builder: (context, state) {
+                return Expanded(
+                  child: ListView.builder(
+                    itemCount: state.getFilterList().length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final item = state.getFilterList()[index];
+                      final amount = item['amount'].toString().parseToDouble();
+
+                      return EnhancedTransactionCard(
+                        title: item['title'],
+                        date: item['date'],
+                        catalog: item['selectCotalog'],
+                        amount: amount.toString().formattedAmount(),
+                        isIncome: item['typeInput'] == true ||
+                            item['typeInput'] == 'true' ||
+                            item['typeInput'] == 1,
+                        onEdit: () {
+                          context.read<HomeBloc>().add(
+                                EditTransactionEvent(
+                                  context,
+                                  transaction: item,
+                                ),
+                              );
+                        },
+                        onDelete: () {
+                          context.read<HomeBloc>().add(
+                                DeleteTransactionEvent(item, context),
+                              );
+                        },
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
